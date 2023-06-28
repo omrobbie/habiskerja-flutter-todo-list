@@ -12,9 +12,15 @@ class TodoListPage extends StatefulWidget {
 }
 
 class _TodoListPageState extends State<TodoListPage> {
-  List<TodoItem> todos = [];
   bool isLoading = false;
+  List<TodoItem> todos = [];
   int totalDone = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    refreshData();
+  }
 
   void refreshData() {
     setState(() {
@@ -32,12 +38,6 @@ class _TodoListPageState extends State<TodoListPage> {
         isLoading = false;
       });
     });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    refreshData();
   }
 
   @override
@@ -68,7 +68,7 @@ class _TodoListPageState extends State<TodoListPage> {
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    "Sudah diselesaikan $totalDone",
+                    'Sudah diselesaikan $totalDone',
                     style: const TextStyle(
                       decoration: TextDecoration.underline,
                     ),

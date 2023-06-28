@@ -3,12 +3,13 @@ import 'package:dio/dio.dart';
 import '../models/todo_item.dart';
 
 class NetworkManager {
-  late final Dio _dio;
-  final baseUrl = 'http://localhost:3000';
-
   NetworkManager() {
     _dio = Dio();
   }
+
+  final baseUrl = 'http://localhost:3000';
+
+  late final Dio _dio;
 
   Future<List<TodoItem>> getTodosIsDone(bool isDone) async {
     final result = await _dio.get(

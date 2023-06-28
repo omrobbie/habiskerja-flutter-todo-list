@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../models/todo_item.dart';
 
 class ItemWidget extends StatelessWidget {
-  final TodoItem item;
-
   const ItemWidget({
     Key? key,
     required this.item,
   }) : super(key: key);
+
+  final TodoItem item;
 
   @override
   Widget build(BuildContext context) {
