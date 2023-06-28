@@ -10,9 +10,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TodoListPage(),
+      title: 'Todo List',
+      theme: ThemeData(
+        primarySwatch: Colors.grey,
+      ),
+      home: const TodoListPage(),
     );
   }
 }
