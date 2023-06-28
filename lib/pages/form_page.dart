@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../models/todo_item.dart';
+import '../utils/network_manager.dart';
+
 class FormPage extends StatefulWidget {
   const FormPage({super.key});
 
@@ -51,7 +54,18 @@ class _FormPageState extends State<FormPage> {
               ),
               const SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  final item = TodoItem(
+                    title: controllerTitle.text,
+                    description: controllerDescription.text,
+                    isDone: false,
+                  );
+
+                  if (item.title.isNotEmpty && item.description.isNotEmpty) {
+                    await NetworkManager().postData(item);
+                    Navigator.pop(context);
+                  }
+                },
                 child: const Text('Simpan'),
               ),
             ],
