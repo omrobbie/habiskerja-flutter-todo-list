@@ -4,6 +4,7 @@ import '../models/todo_item.dart';
 import '../utils/network_manager.dart';
 import '../widgets/item_widget.dart';
 import 'form_page.dart';
+import 'todo_done_page.dart';
 
 class TodoListPage extends StatefulWidget {
   const TodoListPage({super.key});
@@ -67,7 +68,16 @@ class _TodoListPageState extends State<TodoListPage> {
                   style: textTheme.bodyLarge,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const TodoDonePage();
+                        },
+                      ),
+                    );
+                  },
                   child: Text(
                     'Sudah diselesaikan $totalDone',
                     style: const TextStyle(
