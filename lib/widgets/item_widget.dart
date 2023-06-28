@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/models/todo_item.dart';
+
+import '../models/todo_item.dart';
 
 class ItemWidget extends StatelessWidget {
   final TodoItem item;

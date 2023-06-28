@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:todo_list/models/todo_item.dart';
+
+import '../models/todo_item.dart';
 
 class NetworkManager {
   late final Dio _dio;

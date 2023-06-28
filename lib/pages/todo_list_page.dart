@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/models/todo_item.dart';
-import 'package:todo_list/utils/network_manager.dart';
-import 'package:todo_list/widgets/item_widget.dart';
+
+import '../models/todo_item.dart';
+import '../utils/network_manager.dart';
+import '../widgets/item_widget.dart';
 
 class TodoListPage extends StatefulWidget {
   const TodoListPage({super.key});
