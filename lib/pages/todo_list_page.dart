@@ -91,7 +91,10 @@ class _TodoListPageState extends State<TodoListPage> {
                           )
                         : ListView.builder(
                             itemBuilder: (context, index) {
-                              return ItemWidget(item: todos[index]);
+                              return ItemWidget(
+                                item: todos[index],
+                                handleRefresh: refreshData,
+                              );
                             },
                             itemCount: todos.length,
                           ),

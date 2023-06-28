@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../models/todo_item.dart';
+import '../utils/network_manager.dart';
 
 class ItemWidget extends StatelessWidget {
   const ItemWidget({
     Key? key,
     required this.item,
+    required this.handleRefresh,
   }) : super(key: key);
 
+  final Function() handleRefresh;
   final TodoItem item;
 
   @override
@@ -42,7 +45,12 @@ class ItemWidget extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                 ),
-                onPressed: () {},
+                onPressed: () async {
+                  await NetworkManager().updateData(
+                    item.copyWith(isDone: true),
+                  );
+                  handleRefresh();
+                },
                 child: const Icon(Icons.check),
               ),
             const SizedBox(width: 8),
