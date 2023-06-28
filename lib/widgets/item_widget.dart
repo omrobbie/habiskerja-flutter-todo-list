@@ -54,16 +54,17 @@ class ItemWidget extends StatelessWidget {
                 child: const Icon(Icons.check),
               ),
             const SizedBox(width: 8),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
+            if (!item.isDone)
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                ),
+                onPressed: () async {
+                  await NetworkManager().deleteData(item);
+                  handleRefresh();
+                },
+                child: const Icon(Icons.delete_forever),
               ),
-              onPressed: () async {
-                await NetworkManager().deleteData(item);
-                handleRefresh();
-              },
-              child: const Icon(Icons.delete_forever),
-            )
           ],
         ),
       ),
