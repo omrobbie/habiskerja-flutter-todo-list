@@ -90,13 +90,14 @@ class _TodoListPageState extends State<TodoListPage> {
                             child: Text('Tidak ada data'),
                           )
                         : ListView.builder(
+                            physics: const BouncingScrollPhysics(),
+                            itemCount: todos.length,
                             itemBuilder: (context, index) {
                               return ItemWidget(
                                 item: todos[index],
                                 handleRefresh: refreshData,
                               );
                             },
-                            itemCount: todos.length,
                           ),
                   )
           ],
